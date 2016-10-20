@@ -1,0 +1,18 @@
+.btn-large {
+  border-radius: 10px;
+}
+
+.fullWidth {
+  width: 90%;
+  margin: 1.5em;
+}
+
+.rwdFont {
+  font-size: 1em;
+}
+
+@media (max-width: 600px) {
+  .rwdFont {
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,25 @@
+// breakpoint for font-size
+$screen-width-desktop: 993px;
+$screen-width-mobile: 600px;
+// margin around buttons
+$margin: 1.5em;
+
+.btn-large {
+  // @media (min-width: $screen-width-mobile) {
+    // apply round corners to non-mobile devices
+    border-radius: 10px;
+  // }
+}
+
+.fullWidth {
+  width: 90%;
+  margin: $margin;
+}
+
+.rwdFont {
+  font-size: 1em;
+  @media (max-width: $screen-width-mobile) {
+    // decrease font-size on mobile devices
+    font-size: 0.8em;
+  }
+}
