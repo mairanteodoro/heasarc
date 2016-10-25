@@ -1,0 +1,29 @@
+<div>
+
+<!-- CONTENT -->
+<div class="container">
+  <!-- full webpage -->
+  <div class="row center-align hide-on-small-only">
+    <div *ngFor="let item of list">
+      <div class="col l6 m12">
+        <a href="#!" class="waves-effect waves-light btn-large z-depth-2 fullWidth rwdFont">
+          {{ item }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- mobile -->
+  <div class="row center-align hide-on-med-and-up">
+    <div *ngFor="let item of listMobile">
+      <div class="col s12">
+        <a href="#!" class="waves-effect waves-light btn-floating btn-large z-depth-2 fullWidth">
+          {{ item }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /CONTENT -->
+
+</div>

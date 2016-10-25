@@ -1,52 +1,22 @@
 <div>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="nav-wrapper white-text light-blue accent-3">
-    <a href="#!" class="brand-logo">Logo</a>
-    <a href="#!" data-activates="mobile-navbar-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="#!">Item 1</a></li>
-      <li><a href="#!">Item 2</a></li>
-      <li><a href="#!">Item 3</a></li>
-      <li><a href="#!">Item 4</a></li>
-      <li><a href="#!">Item 5</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-navbar-menu">
-      <li><a href="#!">Item 1</a></li>
-      <li><a href="#!">Item 2</a></li>
-      <li><a href="#!">Item 3</a></li>
-      <li><a href="#!">Item 4</a></li>
-      <li><a href="#!">Item 5</a></li>
-    </ul>
-  </div>
-</nav>
-<!-- /NAVBAR -->
-
-<!-- CONTENT -->
-<div class="container">
-  <!-- full webpage -->
-  <div class="row center-align hide-on-small-only">
-    <div *ngFor="let item of list">
-      <div class="col l6 m12">
-        <a href="#!" class="waves-effect waves-light btn-large z-depth-4 fullWidth rwdFont">
-          {{ item }}
-        </a>
-      </div>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-wrapper white-text light-blue accent-3">
+      <a href="#!" class="brand-logo fullHeight"><img class="fullHeight" src="http://nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" alt=""></a>
+      <a href="#!" data-activates="mobile-navbar-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down" *ngFor="let item of centers.reverse()">
+        <li><a href="#!">{{ item }}</a></li>
+      </ul>
+      <ul id="mobile-navbar-menu" class="side-nav">
+        <div *ngFor="let item of centers.reverse()">
+          <li><a href="#!">{{ item }}</a></li>
+        </div>
+      </ul>
     </div>
-  </div>
-  <!-- mobile -->
-  <div class="row center-align hide-on-med-and-up">
-    <div *ngFor="let item of listMobile">
-      <div class="col s12">
-        <a href="#!" class="waves-effect waves-light btn-floating btn-large z-depth-4 fullWidth">
-          {{ item }}
-        </a>
-      </div>
-    </div>
-  </div>
+  </nav>
+  <!-- /NAVBAR -->
 
-</div>
-<!-- /CONTENT -->
+  <router-outlet></router-outlet>
 
 </div>
