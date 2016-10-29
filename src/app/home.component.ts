@@ -10,27 +10,40 @@ export class HomeComponent implements OnInit {
 
   constructor(private httpService:HttpService) {}
 
-  list:Array<string> = [
-    'Coordinates conv.', 'Energy conv.',
-    'NH column density', 'Time/Date conv.',
-    'Universal Atomic Database', 'X-ray background',
-    'X-ray/gamma-ray/EUV finder', 'Viewing',
-    'WebPIMMS', 'Latest News',
-    'Upcoming Meetings', 'Proposals',
-    'Skyview'
+  // the links must be provided with absolute path
+  // because we are using a redirectTo in our app.routing.ts
+  list:Array<Object> = [
+    {name: "Coordinates conv.", link: '/coco'},
+    {name: "Energy conv.", link:'/enco'},
+    {name: "NH column density", link: '/colden'},
+    {name: "Time/Date conv.", link: '/timedate'},
+    {name: "Universal Atomic Database", link: '/uad'},
+    {name: "X-ray background", link: '/xbkg'},
+    {name: "X-ray/gamma-ray/EUV finder", link: '/xgeuv-finder'},
+    {name: "Viewing", link: '/viewing'},
+    {name: "WebPIMMS", link: '/pimms'},
+    {name: "Latest News", link: '/news'},
+    {name: "Upcoming Meetings", link: '/meetings'},
+    {name: "Proposals", link: '/proposals'},
+    {name: "Skyview", link: '/skyview'}
   ];
-  listMobile:Array<string> = [
-    'Latest News',
-    'Upcoming Meetings',
-    'Proposal Opportunities',
-    'Tools'
+  listMobile:Array<Object> = [
+    {name: "Latest News", link: '/news'},
+    {name: "Upcoming Meetings", link: '/meetings'},
+    {name: "Proposals", link: '/proposals'},
+    {name: "Tools", link: '/tools'}
   ];
-  toolsMobile:Array<string> = [
-    'Coordinates conv.', 'Energy conv.',
-    'NH column density', 'Time/Date conv.',
-    'Universal Atomic Database', 'X-ray background',
-    'X-ray/gamma-ray/EUV finder', 'Viewing',
-    'WebPIMMS', 'Skyview'
+  toolsMobile:Array<Object> = [
+    {name: "Coordinates conv.", link: '/coco'},
+    {name: "Energy conv.", link:'/enco'},
+    {name: "NH column density", link: '/colden'},
+    {name: "Time/Date conv.", link: '/timedate'},
+    {name: "Universal Atomic Database", link: '/uad'},
+    {name: "X-ray background", link: '/xbkg'},
+    {name: "X-ray/gamma-ray/EUV finder", link: '/xgeuv-finder'},
+    {name: "Viewing", link: '/viewing'},
+    {name: "WebPIMMS", link: '/pimms'},
+    {name: "Skyview", link: '/skyview'}
   ];
 
   ngOnInit() {
@@ -54,12 +67,7 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (data:any) => console.log(data)
       );
-
-    // Server get data
-    this.httpService.getData("http://localhost:3000")
-      .subscribe(
-        (data:any) => console.log(data)
-      );
+      
   }
 
   // METHODS

@@ -6,8 +6,8 @@
   <div class="row center-align hide-on-small-only">
     <div *ngFor="let item of list">
       <div class="col l6 m12">
-        <a href="#!" class="waves-effect waves-light btn-large z-depth-2 fullWidth rwdFont">
-          {{ item }}
+        <a [routerLink]="item.link" class="waves-effect waves-light btn-large z-depth-2 fullWidth rwdFont">
+          {{ item.name }}
         </a>
       </div>
     </div>
@@ -16,8 +16,8 @@
   <div class="row center-align hide-on-med-and-up">
     <div *ngFor="let item of listMobile">
       <div class="col s12">
-        <a href="#!" class="waves-effect waves-light btn-floating btn-large z-depth-2 fullWidth">
-          {{ item }}
+        <a [routerLink]="item.link" class="waves-effect waves-light btn-floating btn-large z-depth-2 fullWidth">
+          {{ item.name }}
         </a>
       </div>
     </div>
