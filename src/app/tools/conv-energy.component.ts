@@ -11,6 +11,7 @@ export class ConvEnergyComponent implements OnInit {
   constructor(private httpService:HttpService) {}
 
   energyUnits:string[];
+  unitsList:string[];
   inputData:Object;
   outputData:any;
 
@@ -18,6 +19,9 @@ export class ConvEnergyComponent implements OnInit {
     this.energyUnits = [
       "erg", "J",
     ];
+    this.unitsList = [
+      "erg", "Hz", "AA", "eV", "K", "me", "mp"
+    ]
     this.resetForm();
   }
 
@@ -32,7 +36,8 @@ export class ConvEnergyComponent implements OnInit {
     this.inputData = {
       value1: null,
       unit1: null,
-      unit2: null
+      unit2: null,
+      unit1b: null
     };
     this.outputData = null;
   }
@@ -45,9 +50,11 @@ export class ConvEnergyComponent implements OnInit {
     this.httpService.getData("http://localhost:8080/conv-energy/" + value1 + "/" + unit1 + "/" + unit2)
       .subscribe(
         (data:any) => {
-          console.log(data);
+          console.log(data.result.split(', '));
           // assign the data returned from the server to a variable
           this.outputData = data
+          // results from the server only (array)
+          this.outputData.result = data.result.split(', ')
         }
       );
   }
@@ -58,6 +65,10 @@ export class ConvEnergyComponent implements OnInit {
 
   setUnit2(unit2:string) {
     this.inputData["unit2"] = unit2;
+  }
+
+  setUnit1b(unit1b:string) {
+    this.inputData["unit1b"] = unit1b;
   }
 
 }

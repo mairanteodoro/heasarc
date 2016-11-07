@@ -51,7 +51,7 @@
     <div class="center">
 
       <p *ngIf="outputData" class="flow-text grey-text text-darken-2">
-        {{outputData.data1}} {{outputData.unit1}} = {{outputData.result}}
+        {{outputData.data1}} {{outputData.unit1}} = {{outputData.result[0]}}
       </p>
 
     </div>
@@ -60,8 +60,60 @@
   <hr>
   <br><br>
 
+
+
+
+
   <div>
     <h4>Multiplex energy converter</h4>
+    <div class="row">
+
+      <!-- MAGNITUDE -->
+      <div class="input-field col s12 m4 l4">
+
+        <form method="post">
+          <input id="value1b" type="number" name="value1b" class="validate input-no-spinner" [(ngModel)]="inputData.value1b">
+          <label for="value1b">Enter a value</label>
+        </form>
+
+      </div>
+
+      <!-- SELECTED UNIT -->
+      <div class="input-field col s12 m4 l4">
+
+        <select id="unit1b" name="unit1b" materialize="material_select" [materializeSelectOptions]="energyUnits" (change)="setUnit1b($event.target.value); getData()">
+          <option value="" disabled selected>Units</option>
+          <option *ngFor="let unit of unitsList" [value]="unit">{{unit}}</option>
+        </select>
+        <label for="unit1b">Select a unit</label>
+
+      </div>
+
+    </div>
+
+    <table *ngIf="outputData" class="responsive-table">
+        <thead>
+          <tr>
+              <th data-field="Hz">Hz</th>
+              <th data-field="AA">AA</th>
+              <th data-field="eV">eV</th>
+              <th data-field="K">K</th>
+              <th data-field="me">m<sub>e</sub></th>
+              <th data-field="mp">m<sub>p</sub></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{outputData.result[1]}}</td>
+            <td>{{outputData.result[2]}}</td>
+            <td>{{outputData.result[3]}}</td>
+            <td>{{outputData.result[4]}}</td>
+            <td>{{outputData.result[5]}}</td>
+            <td>{{outputData.result[6]}}</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 
 </div>
