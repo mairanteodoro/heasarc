@@ -1,0 +1,54 @@
+<div>
+  <h4>Multiplex energy converter</h4>
+  <div class="row">
+
+    <!-- MAGNITUDE -->
+    <div class="input-field col s12 m4 l4">
+
+      <form method="post">
+        <input id="value1" type="number" name="value1" class="validate input-no-spinner" [(ngModel)]="inputData.value1" (keyup.enter)="getData()">
+        <label for="value1">Enter a value</label>
+      </form>
+
+    </div>
+
+    <!-- SELECTED UNIT -->
+    <div class="input-field col s12 m4 l4">
+
+      <select id="unit1" name="unit1" materialize="material_select" [materializeSelectOptions]="energyUnits" (change)="setUnit1($event.target.value); getData()">
+        <option value="" disabled selected>Units</option>
+        <option *ngFor="let unit of unitsList" [value]="unit">{{unit}}</option>
+      </select>
+      <label for="unit1">Select a unit</label>
+
+    </div>
+
+  </div>
+
+  <!-- SHOW RESULT -->
+  <!-- <div class="center" *ngIf="outputData">
+
+    <p class="flow-text grey-text text-darken-2" *ngFor="let result of outputData.result">
+      {{result}}
+    </p>
+
+  </div> -->
+
+  <div class="center">
+
+    <table *ngIf="outputData" class="responsive-table highlight">
+      <thead>
+        <tr>
+          <th *ngFor="let unit of unitsList">{{unit}}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td *ngFor="let result of outputData.result">{{result | formatResult: "no-unit"}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

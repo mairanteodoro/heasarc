@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
 @Component({
-  selector: 'app-conv-energy',
-  templateUrl: './conv-energy.component.html',
+  selector: 'app-multiplex-energy',
+  templateUrl: './multiplex-energy.component.html',
   styles: []
 })
-export class ConvEnergyComponent implements OnInit {
+export class MultiplexEnergyComponent implements OnInit {
 
   constructor(private httpService:HttpService) {}
 
@@ -16,9 +16,9 @@ export class ConvEnergyComponent implements OnInit {
   outputData:any;
 
   ngOnInit() {
-    this.energyUnits = [
-      "erg", "J",
-    ];
+    this.unitsList = [
+      "erg", "Hz", "Angstrom", "eV", "K", "me", "mp"
+    ]
     this.resetForm();
   }
 
@@ -41,9 +41,9 @@ export class ConvEnergyComponent implements OnInit {
   getData() {
     let value1 = this.inputData["value1"];
     let unit1 = this.inputData["unit1"];
-    let unit2 = this.inputData["unit2"];
+    // let unit2 = this.inputData["unit2"];
     // get data from server
-    this.httpService.getData("http://localhost:8080/conv-energy/" + value1 + "/" + unit1 + "/" + unit2)
+    this.httpService.getData("http://localhost:8080/multiplex-energy/" + value1 + "/" + unit1)
       .subscribe(
         (data:any) => {
           console.log(data.result.split(', '));
@@ -57,10 +57,6 @@ export class ConvEnergyComponent implements OnInit {
 
   setUnit1(unit1:string) {
     this.inputData["unit1"] = unit1;
-  }
-
-  setUnit2(unit2:string) {
-    this.inputData["unit2"] = unit2;
   }
 
 }

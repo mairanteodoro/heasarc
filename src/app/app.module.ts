@@ -13,9 +13,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { ConvCoordComponent } from './tools/conv-coord.component';
 import { ConvEnergyComponent } from './tools/conv-energy.component';
+import { MultiplexEnergyComponent } from './tools/multiplex-energy.component';
 import { ColDenComponent } from './tools/col-den.component';
 import { TimeDateComponent } from './tools/time-date.component';
 import { UadComponent } from './tools/uad.component';
+import { EnergyComponent } from './tools/energy.component';
+import { FormatResultPipe } from './tools/format-result.pipe';
 
 @NgModule({
   declarations: [
@@ -23,9 +26,12 @@ import { UadComponent } from './tools/uad.component';
     HomeComponent,
     ConvCoordComponent,
     ConvEnergyComponent,
+    MultiplexEnergyComponent,
     ColDenComponent,
     TimeDateComponent,
-    UadComponent
+    UadComponent,
+    EnergyComponent,
+    FormatResultPipe
   ],
   imports: [
     BrowserModule,

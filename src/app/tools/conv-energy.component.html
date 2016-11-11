@@ -1,119 +1,59 @@
-<div class="container">
+<div>
+  <h4>Dual energy converter</h4>
+  <div class="row">
 
-  <div>
-    <h4>Dual energy converter</h4>
-    <div class="row">
+    <!-- MAGNITUDE -->
+    <div class="input-field col s12 m4 l4">
 
-      <!-- MAGNITUDE -->
-      <div class="input-field col s12 m4 l4">
-
-        <form method="post">
-          <input id="value1" type="number" name="value1" class="validate input-no-spinner" [(ngModel)]="inputData.value1">
-          <label for="value1">Value</label>
-        </form>
-
-      </div>
-
-      <!-- UNIT TO CONVERT FROM -->
-      <div class="input-field col s12 m4 l4">
-
-        <select id="unit1" name="unit1" materialize="material_select" [materializeSelectOptions]="energyUnits" (change)="setUnit1($event.target.value)">
-          <option value="" disabled selected>Units</option>
-          <option *ngFor="let unit of energyUnits" [value]="unit">{{unit}}</option>
-        </select>
-        <label for="unit1">From</label>
-
-      </div>
-
-      <!-- UNIT TO CONVERT TO -->
-      <div class="input-field col s12 m4 l4">
-
-        <select id="unit2" name="unit2" materialize="material_select" [materializeSelectOptions]="energyUnits" (change)="setUnit2($event.target.value)">
-          <option value="" disabled selected>Units</option>
-          <option *ngFor="let unit of energyUnits" [value]="unit">{{unit}}</option>
-        </select>
-        <label for="unit2">To</label>
-
-      </div>
+      <form method="post">
+        <input id="value1" type="number" name="value1" class="validate input-no-spinner" [(ngModel)]="inputData.value1" (keyup.enter)="getData()">
+        <label for="value1">Value</label>
+      </form>
 
     </div>
 
-    <!-- SUBMIT AND RESET BUTTONS -->
-    <div class="row">
+    <!-- UNIT TO CONVERT FROM -->
+    <div class="input-field col s12 m4 l4">
 
-      <a class="col s4 m4 l4 push-s1 push-m1 push-l1 waves-effect waves-light btn" (click)="getData()">Convert</a>
+      <select id="unit1" name="unit1" materialize="material_select" [materializeSelectOptions]="energyUnits" (change)="setUnit1($event.target.value)">
+        <option value="" disabled selected>Units</option>
+        <option *ngFor="let unit of energyUnits" [value]="unit">{{unit}}</option>
+      </select>
+      <label for="unit1">From</label>
 
-      <a class="col s4 m4 l4 push-s3 push-m3 push-l3 waves-effect waves-light btn" (click)="resetForm()">Reset</a>
+    </div>
+
+    <!-- UNIT TO CONVERT TO -->
+    <div class="input-field col s12 m4 l4">
+
+      <select id="unit2" name="unit2" materialize="material_select" [materializeSelectOptions]="energyUnits" (change)="setUnit2($event.target.value)">
+        <option value="" disabled selected>Units</option>
+        <option *ngFor="let unit of energyUnits" [value]="unit">{{unit}}</option>
+      </select>
+      <label for="unit2">To</label>
 
     </div>
 
-    <!-- SHOW RESULTS -->
-    <div class="center">
-
-      <p *ngIf="outputData" class="flow-text grey-text text-darken-2">
-        {{outputData.data1}} {{outputData.unit1}} = {{outputData.result[0]}}
-      </p>
-
-    </div>
   </div>
 
-  <hr>
-  <br><br>
+  <!-- SUBMIT AND RESET BUTTONS -->
+  <div class="row">
 
+    <a class="col s4 m4 l4 push-s1 push-m1 push-l1 waves-effect waves-light btn" (click)="getData()">Convert</a>
 
+    <a class="col s4 m4 l4 push-s3 push-m3 push-l3 waves-effect waves-light btn" (click)="resetForm()">Reset</a>
 
-
-
-  <div>
-    <h4>Multiplex energy converter</h4>
-    <div class="row">
-
-      <!-- MAGNITUDE -->
-      <div class="input-field col s12 m4 l4">
-
-        <form method="post">
-          <input id="value1b" type="number" name="value1b" class="validate input-no-spinner" [(ngModel)]="inputData.value1b">
-          <label for="value1b">Enter a value</label>
-        </form>
-
-      </div>
-
-      <!-- SELECTED UNIT -->
-      <div class="input-field col s12 m4 l4">
-
-        <select id="unit1b" name="unit1b" materialize="material_select" [materializeSelectOptions]="energyUnits" (change)="setUnit1b($event.target.value); getData()">
-          <option value="" disabled selected>Units</option>
-          <option *ngFor="let unit of unitsList" [value]="unit">{{unit}}</option>
-        </select>
-        <label for="unit1b">Select a unit</label>
-
-      </div>
-
-    </div>
-
-    <table *ngIf="outputData" class="responsive-table">
-        <thead>
-          <tr>
-              <th data-field="Hz">Hz</th>
-              <th data-field="AA">AA</th>
-              <th data-field="eV">eV</th>
-              <th data-field="K">K</th>
-              <th data-field="me">m<sub>e</sub></th>
-              <th data-field="mp">m<sub>p</sub></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>{{outputData.result[1]}}</td>
-            <td>{{outputData.result[2]}}</td>
-            <td>{{outputData.result[3]}}</td>
-            <td>{{outputData.result[4]}}</td>
-            <td>{{outputData.result[5]}}</td>
-            <td>{{outputData.result[6]}}</td>
-          </tr>
-        </tbody>
-      </table>
   </div>
 
+  <!-- SHOW RESULT -->
+  <div class="center">
+
+    <p *ngIf="outputData" class="flow-text grey-text text-darken-2">
+      {{outputData.data1}} {{outputData.unit1}} = {{outputData.result[0] | formatResult: "unit"}}
+    </p>
+
+  </div>
 </div>
+
+<hr>
+<br><br>
