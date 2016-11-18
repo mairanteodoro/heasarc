@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 // Materialize CSS
 import { MaterializeModule } from 'angular2-materialize';
+// Angular 2 date picker (https://www.npmjs.com/package/angular2-datepicker)
+import { MyDatePickerModule } from 'mydatepicker';
 // HTTP service
 import { HttpService } from './http.service';
 // routing
@@ -39,6 +41,7 @@ import { FormatResultPipe } from './tools/format-result.pipe';
     HttpModule,
     MaterializeModule,
     routing,
+    MyDatePickerModule,
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

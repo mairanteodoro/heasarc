@@ -16,9 +16,9 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.1.0.tgz#159037ee8ea5b75951cbcb371749504b535f2c2d"
 
-"@angular/common@~2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.0.2.tgz#b4a28f7568a511f596dc2dd4e2551830642cd4f4"
+"@angular/common@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.0.0.tgz#6d5b38cef8bec69726590f395da10c2d89146247"
 
 "@angular/compiler-cli@^0.6.0":
   version "0.6.4"
@@ -33,41 +33,41 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.1.0.tgz#1388e1b6adadb4495e1cb5f0fa5322728de0d003"
 
-"@angular/compiler@~2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.0.2.tgz#4ca4e53956cd6a36b223ce12682ba0bc289326bb"
+"@angular/compiler@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.0.0.tgz#724e7c68ac177aa933aa75a6b4cb11e5aa795d2c"
 
 "@angular/core@^2.0.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.1.0.tgz#a2fdb0f76f72e5ac521feadd4d119f60afff2bd3"
 
-"@angular/core@~2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.0.2.tgz#f6ace071fecac27f9ac490cabfb17d6634aeee12"
+"@angular/core@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-2.0.0.tgz#87b5ea4a7ae063d27bcf2332a4aa932d887abe2b"
 
 "@angular/forms@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-0.3.0.tgz#d76218bb22b74d5ac3878915d377de0487c34069"
 
-"@angular/forms@~2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-2.0.2.tgz#b762b8d86fa576147f6221482d90b3e94e8fe26c"
+"@angular/forms@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-2.0.0.tgz#4f472223f61aec49f27575ef49b0d6cac3be1e31"
 
-"@angular/http@~2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/http/-/http-2.0.2.tgz#c74b03125162f470b84e52c3a496b8fcda7085eb"
+"@angular/http@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/http/-/http-2.0.0.tgz#ee3206cd1683581dd57dabba93c0e23af19b4732"
 
-"@angular/platform-browser-dynamic@~2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.0.2.tgz#089272c349f78850690f15c4c81f5089f7271e88"
+"@angular/platform-browser-dynamic@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.0.0.tgz#2ee3f2bb08b4864902c5b7c283f77863c89d8715"
 
 "@angular/platform-browser@^2.0.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-2.1.0.tgz#f53b2234a460def5f9e718bb812b91a0a5f6c1e7"
 
-"@angular/platform-browser@~2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-2.0.2.tgz#25b754bfc426ee5a761b0b47fc677cd7d8ae41d2"
+"@angular/platform-browser@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-2.0.0.tgz#7f8603be42511d3133e95888a1b5c5132fc89c46"
 
 "@angular/platform-server@^2.0.0":
   version "2.1.0"
@@ -75,9 +75,9 @@
   dependencies:
     parse5 "^2.2.1"
 
-"@angular/router@~3.0.0":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-3.0.2.tgz#3b0623a72d3b841b17edecd027f9832baf4450f1"
+"@angular/router@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-3.0.0.tgz#cdf91b3a5d85ad39aff4fd882455c9b8c3129cd9"
 
 "@angular/tsc-wrapped@^0.3.0":
   version "0.3.0"
@@ -1438,9 +1438,9 @@ codecov@^1.0.1:
     request ">=2.42.0"
     urlgrey ">=0.4.0"
 
-codelyzer@~0.0.26:
-  version "0.0.28"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-0.0.28.tgz#294d31224f99f5268ab5e40b7e71060ddb942fa3"
+codelyzer@0.0.26:
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-0.0.26.tgz#9b23e11218d4e82953fe4170c0309f4e79ffebc8"
   dependencies:
     sprintf-js "^1.0.3"
 
@@ -3854,7 +3854,7 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-jquery@^2.1.4:
+jquery@^2.1.4, jquery@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
 
@@ -4771,6 +4771,10 @@ mktemp@~0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/mktemp/-/mktemp-0.4.0.tgz#6d0515611c8a8c84e484aa2000129b98e981ff0b"
 
+moment:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.16.0.tgz#f38f2c97c9889b0ee18fc6cc392e1e443ad2da8e"
+
 morgan@^1.5.2:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.7.0.tgz#eb10ca8e50d1abe0f8d3dad5c0201d052d981c62"
@@ -4810,6 +4814,10 @@ mute-stream@0.0.4:
 mute-stream@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
+
+mydatepicker@^1.0.5:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/mydatepicker/-/mydatepicker-1.0.6.tgz#a7543d2b8377d1b5e817991e71e23505794d5fb8"
 
 nan@^2.0.0, nan@^2.3.0, nan@^2.3.2:
   version "2.4.0"
