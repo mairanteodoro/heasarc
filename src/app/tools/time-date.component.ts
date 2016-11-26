@@ -12,6 +12,7 @@ export class TimeDateComponent implements OnInit {
   constructor(private httpService:HttpService) { }
 
   myDate:any;
+  myDateToServer:any;
   myYear:number;
   myMonth:number;
   myDay:number;
@@ -20,7 +21,8 @@ export class TimeDateComponent implements OnInit {
   myMinute:number;
   mySecond:number;
   myAmPm:string;
-  myDatePickerOptions:Object;
+  myDatePickerOptions:{};
+  outputData:{};
 
   ngOnInit() {
     // this.myDate = moment.utc();
@@ -102,6 +104,8 @@ export class TimeDateComponent implements OnInit {
   }
 
   createDate(arr:any[]) {
+    // this method will be invoked
+    // everytime the date changes
     if (arr[3]===24 && arr[4]===0 && arr[5]===0 && this.myAmPm==="pm") {
       arr[3] = 12;
     }
@@ -109,25 +113,30 @@ export class TimeDateComponent implements OnInit {
       arr[2] -= 1;
       arr[3] = 24;
     }
+    // date format to display
+    // e.g. 'Sat, Nov 26th 2016, 6:09:53 pm'
     this.myDate = moment.utc(arr)
       .format("ddd, MMM Do YYYY, h:mm:ss a");
+    // date format to send to server:
+    // .format() -> '1999-01-01T00:00:00.123456789'
+    this.myDateToServer = moment.utc(arr)
+      .format()
+    // call getData method
+    this.getData(this.myDateToServer);
   }
 
-  getData() {
-    // let day = this.myDate.day;
-    // let month = this.myDate.month;
-    // let year = this.myDate.year;
-    // // get data from server
-    // this.httpService.getData("http://localhost:8080/conv-energy/" + value1 + "/" + unit1 + "/" + unit2)
-    //   .subscribe(
-    //     (data:any) => {
-    //       console.log(data.result.split(', '));
-    //       // assign the data returned from the server to a variable
-    //       // this.outputData = data
-    //       // results from the server only (array)
-    //       // this.outputData.result = data.result.split(', ')
-    //     }
-    //   );
+  getData(date) {
+    // pass data to the server and get results back
+    this.httpService.getData("http://localhost:8080/time-and-date/" + date)
+      .subscribe(
+        (data:any) => {
+          console.log(data.result.split(", "));
+          // assign the data returned from the server to a variable
+          this.outputData = data;
+          // results from the server only (array)
+          this.outputData = data.result;
+        }
+      );
   }
 
 }
