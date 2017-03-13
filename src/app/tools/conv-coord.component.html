@@ -1,0 +1,95 @@
+<div class="container">
+  <h4>Coordinate converter</h4>
+  <br>
+  <div class="row">
+
+    <div class="input-field col s12 m12 l4">
+
+      <form method="post">
+        <input id="objName" type="text" name="objName" class="validate input-no-spinner" (keyup.enter)="checkInput($event.target.value)">
+        <label for="objName">Object name or coordinates</label>
+        <br>
+      </form>
+
+    </div>
+
+    <div class="input-field col s12 m12 l4">
+
+      <select id="nameResolver" name="nameResolver" materialize="material_select" [materializeSelectOptions]="nameResolver">
+        <option value="" disabled selected>Select name resolver</option>
+        <option *ngFor="let name of nameResolverList" [value]="name">{{name}}</option>
+      </select>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="input-field col s12 m12 l4">
+
+      <select id="coordSys" name="coordSys" materialize="material_select" [materializeSelectOptions]="coordSys" (change)="setCoordSys($event.target.value)">
+        <option value="" disabled selected>Select input coordinate system</option>
+        <option *ngFor="let coordSystem of coordSystemList" [value]="coordSystem">{{coordSystem}}</option>
+      </select>
+
+    </div>
+
+    <div class="input-field col s12 m12 l4">
+
+      <div *ngIf="specialEquinox">
+        <select id="specialEquinox" name="specialEquinox" materialize="material_select" [materializeSelectOptions]="specialEquinox">
+          <option value="" disabled selected>Select special equinox</option>
+          <option *ngFor="let equinox of equinoxList" [value]="equinox">{{equinox}}</option>
+        </select>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- <div class="row">
+    <a class="col s12 m12 l4 waves-effect waves-light btn-large z-depth-2 fullWidth">Find target / convert coordinates</a>
+  </div> -->
+
+  <div class="row">
+    <a class="col s12 m12 l4 waves-effect waves-light btn-large z-depth-2 fullWidth" (click)="callResetForm(objName)">Reset</a>
+  </div>
+
+
+  <div class="col s12 m12 l4">
+
+    <table *ngIf="outputData" class="responsive-table highlight">
+      <thead>
+        <!-- <tr>
+          <th></th>
+          <th colspan="2">FK5 (J2000)</th>
+          <th colspan="2">FK5 (B1950)</th>
+          <th colspan="2">Galactic</th>
+        </tr> -->
+        <tr>
+          <th></th>
+          <th>RA (J2000)</th>
+          <th>Dec (J2000)</th>
+          <th>RA (B1950)</th>
+          <th>Dec (B1950)</th>
+          <th>l</th>
+          <th>b</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th>HMS/DMS</th>
+          <td *ngFor="let result of outputData.result.hex">{{result | formatCoord}}</td>
+        </tr>
+        <tr>
+          <th>Deg</th>
+          <td *ngFor="let result of outputData.result.deg">{{result | formatCoord}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

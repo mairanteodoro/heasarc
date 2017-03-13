@@ -21,6 +21,7 @@ import { TimeDateComponent } from './tools/time-date.component';
 import { UadComponent } from './tools/uad.component';
 import { EnergyComponent } from './tools/energy.component';
 import { FormatResultPipe } from './tools/format-result.pipe';
+import { FormatCoordPipe } from './tools/format-coord.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormatResultPipe } from './tools/format-result.pipe';
     TimeDateComponent,
     UadComponent,
     EnergyComponent,
-    FormatResultPipe
+    FormatResultPipe,
+    FormatCoordPipe
   ],
   imports: [
     BrowserModule,

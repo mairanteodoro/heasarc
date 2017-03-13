@@ -3,10 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-energy',
   template: `
-    <div class="container">
-      <app-conv-energy></app-conv-energy>
-      <app-multiplex-energy></app-multiplex-energy>
-    </div>
+    <app-multiplex-energy></app-multiplex-energy>
   `,
   styles: []
 })

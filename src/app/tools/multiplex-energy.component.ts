@@ -18,7 +18,7 @@ export class MultiplexEnergyComponent implements OnInit {
   ngOnInit() {
     this.unitsList = [
       "erg", "Hz", "Angstrom", "eV", "K", "me", "mp"
-    ]
+    ];
     this.resetForm();
   }
 

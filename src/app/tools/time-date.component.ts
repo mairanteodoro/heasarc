@@ -22,7 +22,7 @@ export class TimeDateComponent implements OnInit {
   mySecond:number;
   myAmPm:string;
   myDatePickerOptions:{};
-  outputData:{};
+  outputData:{} = {};
 
   ngOnInit() {
     // this.myDate = moment.utc();
@@ -125,16 +125,76 @@ export class TimeDateComponent implements OnInit {
     this.getData(this.myDateToServer);
   }
 
+  calendarDates(data:string, returnValue:boolean=false, format:string="JD") {
+    // convert the passed value (result from the server)
+    // into a string array where each element is composed
+    // by a "key: value" pair
+    let tempArr:string[] = data.replace(/({|})|('|')|\n/g, "").split(", ");
+    // looping over each array element
+    for (var index in tempArr){
+      // extract key: value pairs
+      let myKey:string = (tempArr[index].split(': '))[0],
+          myVal:string = ((tempArr[index].split(': '))[1]);
+      // comply with HEASARC format for 'Calendar date'
+      myVal = myKey === "date" ? moment.utc(myVal).format('YYYY MMM DD HH:mm:ss') : myVal;
+      // set property to literal object
+      this.outputData[myKey] = myVal;
+    }
+    // if this function was called with returnValue set to true
+    // then return the desired date
+    if (returnValue) {
+      return this.outputData[format];
+    }
+  }
+
+  missionDates(data:string) {
+
+    let selectedDate:string = this.calendarDates(data, true, "iso");
+
+    let t0:any = moment.utc(selectedDate);
+
+    // MISSIONS
+    /* Leap second years (ftp://maia.usno.navy.mil/ser7/tai-utc.dat):
+    1980, 1981, 1982, 1983, 1985, 1988,
+    1990, 1991, 1992, 1993, 1994, 1996, 1997, 1999,
+    2006, 2009, 2012, 2015, 2017
+    */
+    // Fermi and Swift
+    let t1:any = moment.utc("2001-01-01 00:00:00");
+    // RXTE
+    let t2:any = moment.utc("1994-01-01 00:00:00");
+    // Suzaku
+    let t3:any = moment.utc("2000-01-01 00:00:00");
+    // XMM-Newton and Chandra
+    /*
+      This should be in the TT reference, i.e.:
+       from UTC, via TAI, to TT => +60.184 s
+       plus the corresponding leap seconds
+    */
+    let t4:any = moment.utc("1998-01-01 00:00:00");
+    // NuSTAR
+    let t5:any = moment.utc("2010-01-01 00:00:00")
+    // LIGO
+    let t6:any = moment.utc("1980-01-06 00:00:00")
+
+    this.outputData["fermi"] = t0.diff(t1, "seconds", true) + 4;
+    this.outputData["ligo"] = t0.diff(t6, "seconds", true) + 17;
+    this.outputData["nustar"] = t0.diff(t5, "seconds", true) + 2;
+    this.outputData["rxte"] = t0.diff(t2, "seconds", true) + 8;
+    this.outputData["suzaku"] = t0.diff(t3, "seconds", true) + 4;
+    this.outputData["swift"] = t0.diff(t1, "seconds", true) + 0;
+    this.outputData["xmmChandra"] = t0.diff(t4, "seconds", true) + 60.184 + 8;
+
+  }
+
   getData(date) {
     // pass data to the server and get results back
     this.httpService.getData("http://localhost:8080/time-and-date/" + date)
       .subscribe(
         (data:any) => {
-          console.log(data.result.split(", "));
-          // assign the data returned from the server to a variable
-          this.outputData = data;
-          // results from the server only (array)
-          this.outputData = data.result;
+          // get data and pass it to workWithData()
+          this.calendarDates(data.result);
+          this.missionDates(data.result);
         }
       );
   }

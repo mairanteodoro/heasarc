@@ -14,8 +14,10 @@ export class FormatResultPipe implements PipeTransform {
     }
     if (Number(temp[0]) < 1E-3) {
       if (args==="unit") {
+        // user requires output with units
         return String(Number(temp[0]).toExponential(3))+" "+temp[1];
       } else {
+        // user requires output without units
         return Number(temp[0]).toExponential(3);
       }
     } else {
